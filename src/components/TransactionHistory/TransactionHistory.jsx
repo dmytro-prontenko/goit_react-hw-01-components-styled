@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { StyledTransactionTable, StyledTransactionType, StyledTransactionsContainer, StyledTransactionsSection } from './TransactionHistory.Styled';
 
 const TransactionHistory = props => {
   const dataToInsert = props.items.map(({ id, amount, currency, type }) => {
     return (
       <tr key={id}>
-        <td className="type">{type}</td>
+        <StyledTransactionType>{type}</StyledTransactionType>
         <td>{amount}</td>
         <td>{currency}</td>
       </tr>
@@ -12,9 +14,9 @@ const TransactionHistory = props => {
   });
 
   return (
-    <section className="transaction-section section">
-      <div className="transaction-container container">
-        <table className="transaction-history">
+    <StyledTransactionsSection>
+      <StyledTransactionsContainer>
+        <StyledTransactionTable>
           <thead>
             <tr>
               <th>Type</th>
@@ -23,9 +25,9 @@ const TransactionHistory = props => {
             </tr>
           </thead>
           <tbody>{dataToInsert}</tbody>
-        </table>
-      </div>
-    </section>
+        </StyledTransactionTable>
+      </StyledTransactionsContainer>
+    </StyledTransactionsSection>
   );
 };
 

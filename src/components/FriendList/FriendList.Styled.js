@@ -27,7 +27,7 @@ export const StyledFriendsItem = styled.li`
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  width: 96%;
+  width: 100%;
   border-radius: 10px;
   padding: 7px;
   border: 2px solid #787676;
