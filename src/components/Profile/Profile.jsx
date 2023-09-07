@@ -5,7 +5,7 @@ import { StyledContainer, StyledImg, StyledProfile, StyledProfileInfo, StyledPro
 
 const Profile = ({ username, tag, location, avatar, stats }) => {
   const statArray = Object.entries(stats);
-  const dataToInsert = statArray.map((stat, idx, arr) => {
+  const dataToInsert = statArray.map((stat) => {
     return (
       <StyledStatItem key={stat[0]}>
         <StyledStatCategory>{stat[0]}</StyledStatCategory>
