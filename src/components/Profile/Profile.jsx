@@ -1,45 +1,36 @@
 import PropTypes from 'prop-types';
+import { StyledContainer, StyledImg, StyledProfile, StyledProfileInfo, StyledProfileRows, StyledProfileStats, StyledSection, StyledStatCategory, StyledStatItem, StyledStatQuant } from './Profile.Styled';
 
-const Profile = ({
-  username,
-  tag,
-  location,
-  avatar,
-  stats: {
-    followers: profileFolowers,
-    views: profileViews,
-    likes: profileLikes,
-  },
-}) => {
+
+
+const Profile = ({ username, tag, location, avatar, stats }) => {
+  const statArray = Object.entries(stats);
+  const dataToInsert = statArray.map((stat, idx, arr) => {
+    return (
+      <StyledStatItem key={statArray[idx][0]}>
+        <StyledStatCategory>{statArray[idx][0]}</StyledStatCategory>
+        <StyledStatQuant>{statArray[idx][1]}</StyledStatQuant>
+      </StyledStatItem>
+    );
+  });
+
   return (
-    <section className="profile-section section">
-      <div className="profiles-container container">
-        <div className="profile-card">
-          <div className="profile-info">
-            <img className="profile-img" src={avatar} alt="" />
-            <p className="name">{username}</p>
-            <p className="tag">@{tag}</p>
-            <p className="location">{location}</p>
-          </div>
-          <ul className="stats">
-            <li>
-              <span className="label">Followers</span>
-              <span className="quantity">{profileFolowers}</span>
-            </li>
-            <li>
-              <span className="label">Views</span>
-              <span className="quantity">{profileViews}</span>
-            </li>
-            <li>
-              <span className="label">Likes</span>
-              <span className="quantity">{profileLikes}</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <StyledSection>
+      <StyledContainer>
+        <StyledProfile>
+          <StyledProfileInfo>
+            <StyledImg src={avatar} alt="" />
+            <StyledProfileRows>{username}</StyledProfileRows>
+            <StyledProfileRows>@{tag}</StyledProfileRows>
+            <StyledProfileRows>{location}</StyledProfileRows>
+          </StyledProfileInfo>
+          <StyledProfileStats>{dataToInsert}</StyledProfileStats>
+        </StyledProfile>
+      </StyledContainer>
+    </StyledSection>
   );
 };
+
 
 Profile.propTypes = {
   username: PropTypes.string,
