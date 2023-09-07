@@ -1,12 +1,18 @@
 // import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { StyledFriendStatus, StyledFriendsContainer, StyledFriendsItem, StyledFriendsList, StyledFriendsSection } from './FriendList.Styled';
+import {
+  StyledFriendStatus,
+  StyledFriendsContainer,
+  StyledFriendsItem,
+  StyledFriendsList,
+  StyledFriendsSection,
+} from './FriendList.Styled';
 
 const FriendList = props => {
   const dataToInsert = props.friends.map(({ avatar, name, isOnline, id }) => {
     return (
       <StyledFriendsItem key={id} id={id}>
-        <StyledFriendStatus online = {isOnline}></StyledFriendStatus>
+        <StyledFriendStatus $status={isOnline}></StyledFriendStatus>
         {/* <span className={isOnline ? 'online' : 'offline'}></span> */}
         {/* <span className={clsx('status', 'ok', 'style', isOnline ? 'online':'offline')}></span> */}
         <img className="avatar" src={avatar} alt="User avatar" width="48" />
@@ -23,8 +29,6 @@ const FriendList = props => {
     </StyledFriendsSection>
   );
 };
-
-
 
 FriendList.propTypes = {
   friends: PropTypes.arrayOf(

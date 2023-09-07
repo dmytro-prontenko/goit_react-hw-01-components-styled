@@ -38,5 +38,5 @@ export const StyledFriendStatus = styled.span`
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: ${props => (props.online ? 'green' : 'red')};
+  background-color: ${props => (props.$status ? 'green' : 'red')};
 `;
