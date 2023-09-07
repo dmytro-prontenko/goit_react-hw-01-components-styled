@@ -1,25 +1,25 @@
 import PropTypes from 'prop-types';
+import { StyledStatContainer, StyledStatItem, StyledStatItemTitle, StyledStatList, StyledStatSection } from './Statistic.Styled';
 
 const Statistics = props => {
   const dataToInsert = props.stats.map(({ label, percentage, id }) => {
     return (
-      <li className="stat-item" key={id} id={id}>
-        <span className="label">{label}</span>
+      <StyledStatItem key={id} id={id}>
+        <StyledStatItemTitle>{label}</StyledStatItemTitle>
         <span className="percentage">{percentage}</span>
-      </li>
+      </StyledStatItem>
     );
   });
   return (
-    <section className="statistics-section section">
-      <div className="statistics-container container">
-        {props.title && (
-          <h2 className="title">Upload stats</h2>
-        )}
-        <ul className="stat-list">{dataToInsert}</ul>
-      </div>
-    </section>
+    <StyledStatSection>
+      <StyledStatContainer>
+        {props.title && <h2 className="title">Upload stats</h2>}
+        <StyledStatList>{dataToInsert}</StyledStatList>
+      </StyledStatContainer>
+    </StyledStatSection>
   );
 };
+
 
 Statistics.propTypes = {
   stats: PropTypes.arrayOf(

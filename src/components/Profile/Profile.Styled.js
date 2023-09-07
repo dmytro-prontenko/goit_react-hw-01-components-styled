@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled.div``;
+export const StyledSection = styled.section``;
 
 export const StyledContainer = styled.div`
   display: flex;
