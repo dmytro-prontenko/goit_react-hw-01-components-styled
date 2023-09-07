@@ -44,5 +44,6 @@ export const StyledStatItem = styled.li`
 `;
 
 export const StyledStatItemTitle = styled.span`
+  color: ${({ theme }) => theme.colors.black};
   font-weight: bold;
 `;
