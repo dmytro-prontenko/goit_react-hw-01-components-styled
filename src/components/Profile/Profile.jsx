@@ -7,9 +7,9 @@ const Profile = ({ username, tag, location, avatar, stats }) => {
   const statArray = Object.entries(stats);
   const dataToInsert = statArray.map((stat, idx, arr) => {
     return (
-      <StyledStatItem key={statArray[idx][0]}>
-        <StyledStatCategory>{statArray[idx][0]}</StyledStatCategory>
-        <StyledStatQuant>{statArray[idx][1]}</StyledStatQuant>
+      <StyledStatItem key={stat[0]}>
+        <StyledStatCategory>{stat[0]}</StyledStatCategory>
+        <StyledStatQuant>{stat[1]}</StyledStatQuant>
       </StyledStatItem>
     );
   });
