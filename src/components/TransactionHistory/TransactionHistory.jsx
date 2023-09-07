@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { StyledTransactionTable, StyledTransactionType, StyledTransactionsContainer, StyledTransactionsSection } from './TransactionHistory.Styled';
 
 const TransactionHistory = props => {
